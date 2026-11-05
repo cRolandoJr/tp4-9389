@@ -1,0 +1,9 @@
+$ python -m unittest tests/test_config.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
+
+Control negativo: YAML mal formado rechazado con ParserError.
+Restauré el archivo y repetí la prueba: OK.

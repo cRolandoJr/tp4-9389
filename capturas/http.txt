@@ -1,0 +1,9 @@
+$ curl -s -o /dev/null -w 'Sitio HTTP %{http_code}\n' http://127.0.0.1:8089/
+Sitio HTTP 200
+
+$ curl -s -o /dev/null -w 'Reporte HTTP %{http_code}\n' http://127.0.0.1:9089/report.html
+Reporte HTTP 200
+
+$ sudo -n docker exec tp4-9389-log_analyzer-1 ls -l /srv/logs/access.log /srv/reports/report.html
+-rw-r--r--    1 root     root          3164 Nov  5 20:33 /srv/logs/access.log
+-rw-r--r--    1 analyzer analyzer    726704 Nov  5 20:32 /srv/reports/report.html

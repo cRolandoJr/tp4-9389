@@ -1,0 +1,30 @@
+$ ansible-playbook -i ansible/hosts.ini ansible/playbook.yml
+
+PLAY [Desplegar el analizador de tráfico del campus] ***************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Instalar Docker y Compose] ***********************************************
+ok: [localhost]
+
+TASK [Habilitar e iniciar Docker] **********************************************
+ok: [localhost]
+
+TASK [Crear el directorio de despliegue] ***************************************
+ok: [localhost]
+
+TASK [Copiar Dockerfile, Compose y configuración de GoAccess] ******************
+ok: [localhost] => (item=Dockerfile)
+ok: [localhost] => (item=docker-compose.yml)
+ok: [localhost] => (item=goaccess.conf)
+
+TASK [Copiar la configuración de Nginx] ****************************************
+ok: [localhost]
+
+TASK [Levantar los dos servicios] **********************************************
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

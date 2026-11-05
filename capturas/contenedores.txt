@@ -1,0 +1,23 @@
+$ sudo -n docker ps --format "table {{.Names}}\t{{.Status}}"
+NAMES                     STATUS
+tp4-9389-log_analyzer-1   Up About a minute
+tp4-9389-web_server-1     Up 31 seconds (healthy)
+
+$ sudo -n docker port tp4-9389-web_server-1
+80/tcp -> 0.0.0.0:8089
+80/tcp -> [::]:8089
+90/tcp -> 0.0.0.0:9089
+90/tcp -> [::]:9089
+
+$ sudo -n docker exec tp4-9389-log_analyzer-1 id
+uid=10001(analyzer) gid=10001(analyzer) groups=10001(analyzer)
+
+$ sudo -n docker inspect tp4-9389-log_analyzer-1 --format "{{range .Mounts}}{{.Destination}} escritura={{.RW}}{{println}}{{end}}"
+/srv/reports escritura=true
+/etc/goaccess/goaccess.conf escritura=false
+/srv/logs escritura=false
+
+
+$ sudo -n docker exec tp4-9389-web_server-1 nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful

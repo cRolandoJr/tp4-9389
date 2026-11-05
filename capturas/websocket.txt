@@ -1,0 +1,7 @@
+URL: http://localhost:9089/report.html
+HTTP: 200
+WebSocket: ws://localhost:9089/ws
+Mensajes antes de generar tráfico: 1
+Mensajes después: 3
+Generé seis peticiones a rutas /prueba-tp4-N (404).
+El navegador recibió datos nuevos sin recargar.
