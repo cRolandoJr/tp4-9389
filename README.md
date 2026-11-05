@@ -138,7 +138,8 @@ por la IP de la VM, hay que ejecutar el playbook con
 ### Pruebas y capturas
 
 Generé las imágenes de terminal a partir de los registros reales guardados en
-los `.txt` del mismo nombre. La imagen del reporte es una captura del navegador.
+los `.txt` del mismo nombre. Añadí el prompt con el usuario, equipo y directorio
+de cada ejecución. La imagen del reporte es una captura del navegador.
 
 Contenedores, puertos, usuario y permisos de los montajes:
 
@@ -162,8 +163,6 @@ recibió nuevos mensajes por WebSocket sin recargar la página.
 
 ![Reporte GoAccess](capturas/goaccess-browser.png)
 
-![Actualización en vivo](capturas/websocket.png)
-
 ### Integración continua
 
 Configuré `.github/workflows/ci-pipeline.yml` para `push` y `pull_request` sobre
@@ -177,4 +176,4 @@ La prueba carga el YAML y comprueba los dos servicios. También probé un YAML
 mal formado: falló con `ParserError`; al restaurarlo, pasó nuevamente.
 Esta prueba no reemplaza la comprobación del despliegue.
 
-![Prueba local y control negativo](capturas/ci-local.png)
+![Prueba de Python en la VM](capturas/ci-local.png)

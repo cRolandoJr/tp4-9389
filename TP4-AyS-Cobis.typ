@@ -168,7 +168,7 @@ Instalé Ansible como preparación del controlador y usé el playbook para insta
 
 Al arrancar encontré el reloj de la VM atrasado. Reinicié chrony y esperé a comprobar la sincronización antes de instalar paquetes. La primera configuración de Nginx duplicaba el formato incorporado `combined`; quité esa declaración y validé con `nginx -t`.
 
-Guardé las salidas de terminal en archivos `.txt` y generé los PNG a partir de esos registros. Para el reporte de GoAccess tomé una captura real del navegador.
+Guardé las salidas de terminal en archivos `.txt` y generé los PNG a partir de esos registros. Añadí el prompt con el usuario, equipo y directorio de cada ejecución. Para el reporte de GoAccess tomé una captura real del navegador.
 
 #figure(image("capturas/entorno.png", width: 100%), caption: [Entorno y versiones usados en las pruebas.])
 
@@ -199,7 +199,6 @@ Serví el HTML por Nginx y configuré `/ws` como proxy hacia el puerto interno 7
 
 #figure(image("capturas/goaccess-browser.png", width: 100%), caption: [Reporte de GoAccess en el navegador después de generar tráfico.])
 
-#figure(image("capturas/websocket.png", width: 100%), caption: [Comprobación de la actualización sin recargar la página.])
 
 #pagebreak()
 = Tarea 2: Gestión de Configuración Automática con Ansible
@@ -233,6 +232,6 @@ Configuré el workflow para los eventos `push` y `pull_request` sobre `main`, co
 
 En `tests/test_config.py` cargué `docker/docker-compose.yml` con `yaml.safe_load` y comprobé la presencia de los dos servicios. Probé además un YAML mal formado: el test falló con `ParserError`. Restauré el archivo y volvió a pasar.
 
-#figure(image("capturas/ci-local.png", width: 100%), caption: [Prueba local y control negativo del parser.])
+#figure(image("capturas/ci-local.png", width: 100%), caption: [Prueba de Python ejecutada en la VM.])
 
 Esta prueba verificó la sintaxis y los nombres de los servicios. Comprobé el funcionamiento del despliegue por separado, con las pruebas HTTP, de permisos y del WebSocket mostradas en la Tarea 1.

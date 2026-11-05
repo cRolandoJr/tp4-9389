@@ -1,4 +1,4 @@
-$ ansible-playbook -i ansible/hosts.ini ansible/playbook.yml
+rolando@rolando-cobis-9389:~/tp4-9389$ ansible-playbook -i ansible/hosts.ini ansible/playbook.yml
 
 PLAY [Desplegar el analizador de tráfico del campus] ***************************
 
